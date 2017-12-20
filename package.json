@@ -10,10 +10,12 @@
     "build": "webpack",
     "dev": "webpack-dev-server",
     "watch": "npm run build -- --watch",
+    "server": "NODE_ENV=server node server.js",
     "test": "NODE_ENV=test jest",
     "update-test": "npm run test -- -u",
     "cover": "npm run test -- --coverage",
-    "start": "NODE_ENV=server node server.js"
+    "start": "npm run build && npm run server",
+    "server-watch": "npm run watch & npm run server"
   },
   "dependencies": {
     "axios": "^0.15.3",
@@ -28,7 +30,7 @@
     "redux": "3.3.1",
     "redux-thunk": "^2.1.0",
     "sanitize-html": "^1.14.1",
-    "semantic-ui-react": "^0.64.2"
+    "semantic-ui-react": "^0.77.1"
   },
   "devDependencies": {
     "babel-core": "6.16.0",

@@ -3,6 +3,7 @@ import sanitize from 'sanitize-html'
 import ItemDetailsReviews from './ItemDetailsReviews.react'
 import ImageCarousel from './ImageCarousel.react'
 import PurchaseButtons from './PurchaseButtons.react'
+import ItemQuantity from './ItemQuantity.react'
 import { Grid, Header } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 const { object, func } = React.PropTypes
@@ -10,29 +11,30 @@ const { object, func } = React.PropTypes
 class ItemDetails extends React.Component {
 
   render () {
-    const storeItem = this.props.storeItem || {}
+    const item = this.props.item || {}
     return (
       <div>
         <Grid stackable relaxed columns={2}>
           <Grid.Column>
-            <Header as='h3' textAlign='center'>
-              { storeItem.title }
+            <Header as='h2' textAlign='center'>
+              { item.title }
             </Header>
-            <ImageCarousel images={storeItem.Images} />
+            <ImageCarousel images={item.Images} />
           </Grid.Column>
           <Grid.Column>
             <Header as='h2'>
-              {storeItem.Offers[0].OfferPrice[0].formattedPriceValue}
+              {item.Offers[0].OfferPrice[0].formattedPriceValue}
             </Header>
             <PurchaseButtons
-              channelCode={storeItem.purchasingChannelCode}
+              channelCode={item.purchasingChannelCode}
             />
+            <ItemQuantity />
             <Header as='h2'>
               product highlights
             </Header>
             <ul>
               {
-                storeItem.ItemDescription[0].features.map((highlight, index) => {
+                item.ItemDescription[0].features.map((highlight, index) => {
                   return (
                     <li key={index}>
                       <span
@@ -46,7 +48,7 @@ class ItemDetails extends React.Component {
           </Grid.Column>
         </Grid>
         <ItemDetailsReviews
-          customerReview={storeItem.CustomerReview[0]}
+          customerReview={item.CustomerReview[0]}
         />
       </div>
     )
@@ -54,7 +56,7 @@ class ItemDetails extends React.Component {
 }
 
 ItemDetails.propTypes = {
-  storeItem: object,
+  item: object,
   dispatch: func
 }
 

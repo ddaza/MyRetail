@@ -11,7 +11,7 @@ class ImageCarousel extends React.Component {
     this.getImageArray = this.getImageArray.bind(this)
   }
 
-  componentDidMount () {
+  componentWillMount () {
     if (!this.props.imageUrl) {
       this.props.dispatch(
         setImageUrl(this.props.images[0].PrimaryImage[0].image)
@@ -39,12 +39,14 @@ class ImageCarousel extends React.Component {
         <Image src={this.props.imageUrl} />
         <Image.Group className='carousel' size='tiny'>
           {
-            this.getImageArray().map((image, index) => {
-              return <Image
-                key={index}
-                src={image.image}
-                onClick={() => this.setCurrentImage(image.image)}
-              />
+            this.getImageArray().map((image) => {
+              return (
+                <Image
+                  key={image.image}
+                  src={image.image}
+                  onClick={() => this.setCurrentImage(image.image)}
+                />
+              )
             })
           }
         </Image.Group>

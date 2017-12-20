@@ -4,14 +4,21 @@ import {
 } from './actions'
 
 const DEFAULT_STATE = {
-  cartItem: '',
+  cartItems: 0,
   imageUrl: ''
 }
 
 const setCartItem = (state, action) => {
   const newState = {}
-  // Add item to an object
-  Object.assign(newState, state, {cartItem: action.cartItem})
+  let cartItems = state.cartItems
+
+  if (action.cartAction === '+') {
+    cartItems++
+  } else if (action.cartAction === '-' && cartItems > 0) {
+    cartItems--
+  }
+
+  Object.assign(newState, state, { cartItems })
   return newState
 }
 

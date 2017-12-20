@@ -9,21 +9,19 @@ import catalog from '../public/item-data.json'
 
 const ClientApp = React.createClass({
   render () {
+    const storeItems = catalog.CatalogEntryView
     return (
       <Provider store={store}>
         <Container>
           <Match exactly pattern='/' component={(props) => {
-            const items = catalog.CatalogEntryView
-            return <RetailStore {...props} storeItems={items} />
+            return <RetailStore {...props} storeItems={storeItems} />
           }} />
           <Match
             pattern='/item/:UPC'
             component={(props) => {
-              const items = catalog.CatalogEntryView
-              .filter((item) => {
-                return props.params.UPC === item.UPC
-              })
-              return <ItemDetails {...props} storeItem={items[0]} />
+              const item = storeItems
+                .filter(item => props.params.UPC === item.UPC)[0] || {}
+              return <ItemDetails {...props} item={item} />
             }}
           />
         </Container>

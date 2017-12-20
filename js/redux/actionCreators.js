@@ -3,8 +3,8 @@ import {
   SET_IMAGE_URL
 } from './actions'
 
-export function setCartItem (cartItem) {
-  return { type: SET_CART_ITEM, cartItem }
+export function setCartItem (cartAction) {
+  return { type: SET_CART_ITEM, cartAction}
 }
 
 export function setImageUrl (imageUrl) {

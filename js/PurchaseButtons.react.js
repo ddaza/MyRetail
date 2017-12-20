@@ -1,33 +1,30 @@
 import React from 'react'
-import { Button } from 'semantic-ui-react'
+import { Button, Container } from 'semantic-ui-react'
 const { string } = React.PropTypes
 
 export default class PurchaseButtons extends React.Component {
-  constructor (props) {
-    super(props)
-    this.getButtons = this.getButtons.bind(this)
-  }
 
-  getButtons () {
-    switch (this.props.channelCode) {
-      case '0':
-        return (
-          <div>
-            <Button color='black'>PICK UP IN STORE</Button>
-            <Button color='red'>ADD TO CART</Button>
-          </div>
-        )
-      case '1':
-        return <Button color='black' >PICK UP IN STORE</Button>
-      case '2':
-        return <Button color='red' >ADD TO CART</Button>
-      default:
-        return null
+  getButtons (code) {
+    const pickStore = <Button color='black'>PICK UP IN STORE</Button>
+    const addToCart = <Button color='red'>ADD TO CART</Button>
+
+    const buttons = {
+      '0': (
+        <Container>
+          {pickStore}
+          {addToCart}
+        </Container>
+      ),
+      '1': addToCart,
+      '2': pickStore
     }
+
+    return buttons[code] || null
   }
 
   render () {
-    return this.getButtons()
+    const code = this.props.channelCode
+    return this.getButtons(code)
   }
 }
 
