@@ -4,7 +4,7 @@ import {
 } from './actions'
 
 export function setCartItem (cartAction) {
-  return { type: SET_CART_ITEM, cartAction}
+  return { type: SET_CART_ITEM, cartAction }
 }
 
 export function setImageUrl (imageUrl) {
