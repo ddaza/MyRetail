@@ -1,6 +1,11 @@
 # myRetail Reactive Store Front
 
-follow the instructions to run myRetail website:
+follow the instructions to run MyRetail website:
+
+Prerequisite:
+ - install `yarn` on your Node enviroment
+    `npm install yarn -g`
+ - make sure your Node version is at least >= 6.0
 
 * On the root folder you want to start by:
   ```sh
@@ -8,13 +13,13 @@ follow the instructions to run myRetail website:
   ```
 * Once it is __done__ you should run the server to start your App
   ```sh
-   $ npm start
+   $ yarn start
   ```
   this would start the app on `localhost:5050`
 
 * If you want to start the __dev__ enviroment
   ```sh
-   $ npm run dev
+   $ yarn dev
   ```
   This would start the __[webpack](https://webpack.github.io/)__ dev enviroment and you would be able to make changes to the code without restarting your server.
 
@@ -28,18 +33,19 @@ follow the instructions to run myRetail website:
 
 There is a lot to do in this area. Since we use a node server we can deploy it into a container. Docker comes to mind.
 
-There can also be a lot more tests written. However since we are using [Redux](redux.js.org) it can be enough to tests the reducers that contains the business logic.
+There can also be a lot more tests written. I've wrote tests for the reducers that contains the business logic.
 
-Also we can add githooks for PRs and test the code at every step of the way.
+We could add githooks for PR merges and test/deploy the code at every step of the way.
 
-Lastly we added linters as part of the build process to make sure the code quality is uniform across enviroments.
+Lastly we added linters as part of the build process to make sure the code quality is uniform.
 
   ```
   +---------------------+        +-----------------+          +------------------+
-  |                     |  Tests |                 |  QA      |                  |
+  |                     |  Tests |                 | QA Tests |                  |
   |  Dev Enviroment     +-------->    Staging      +---------->     Production   |
-  |                     | GitHook|                 | Smoke    |                  |
-  +---------------------+ Linter +-----------------+ Tests    +------------------+
+  |                     | GitHook|                 |          |                  |
+  +---------------------+    &   +-----------------+          +------------------+
+                          Linters
   ```
 
 ## License
