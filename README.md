@@ -1,11 +1,13 @@
-# myRetail Reactive Store Front
+# MyRetail Store Front
 
-follow the instructions to run MyRetail website:
-
-Prerequisite:
+## Prerequisite:
  - install `yarn` on your Node enviroment
     `npm install yarn -g`
  - make sure your Node version is at least >= 6.0
+
+---
+
+## Instructions:
 
 * On the root folder you want to start by:
   ```sh
@@ -26,7 +28,7 @@ Prerequisite:
 * To run the tests, use this command
 
   ```sh
-   $ npm run tests
+   $ yarn tests
   ```
 
 ### Continuous Integration
