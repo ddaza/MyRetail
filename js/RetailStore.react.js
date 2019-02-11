@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Image } from 'semantic-ui-react'
-import { Link } from 'react-router'
-const { arrayOf, object } = React.PropTypes
+import { Link } from 'react-router-dom'
+import { arrayOf, object } from 'prop-types'
 
 export default class RetailStore extends React.Component {
   render () {

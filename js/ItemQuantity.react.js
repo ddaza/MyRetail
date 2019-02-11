@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Button } from 'semantic-ui-react'
 import { setCartItem } from './redux/actionCreators'
 import { connect } from 'react-redux'
-const { number, func } = React.PropTypes
+import { func, number } from 'prop-types'
 
 class ItemQuantity extends React.Component {
   constructor (props) {

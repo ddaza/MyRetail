@@ -5,9 +5,8 @@ test('@@INIT', () => {
   expect(state).toEqual({cartItems: 0, imageUrl: ''})
 })
 
-
 test('SET_IMAGE_URL', () => {
-  const state = reducers(undefined, {type: 'SET_IMAGE_URL', imageUrl: 'http://randomimage.com'})
+  const state = reducers(undefind, {type: 'SET_IMAGE_URL', imageUrl: 'http://randomimage.com'})
   expect(state).toEqual({cartItems: 0, imageUrl: 'http://randomimage.com'})
 })
 

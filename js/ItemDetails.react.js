@@ -6,7 +6,7 @@ import PurchaseButtons from './PurchaseButtons.react'
 import ItemQuantity from './ItemQuantity.react'
 import { Grid, Header } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-const { object, func } = React.PropTypes
+import { func, object } from 'prop-types'
 
 class ItemDetails extends React.Component {
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Container } from 'semantic-ui-react'
-const { string } = React.PropTypes
+import { string } from 'prop-types'
 
 export default class PurchaseButtons extends React.Component {
 

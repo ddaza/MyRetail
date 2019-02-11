@@ -1,6 +1,6 @@
 const path = require('path')
 
-module.exports = {
+module.exports = [{
   context: __dirname,
   entry: './js/App.react.js',
   devtool: 'eval',
@@ -27,12 +27,6 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: 'pre',
-        test: /\.js$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/
-      },
-      {
         test: /\.json$/,
         loader: 'json-loader'
       },
@@ -55,4 +49,34 @@ module.exports = {
       }
     ]
   }
-}
+}, {
+  context: __dirname,
+  entry: './server.js',
+  target: 'node',
+  resolve: {
+    extensions: ['.js', '.json']
+  },
+  output: {
+    path: path.join(__dirname, '/dist'),
+    filename: 'server.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|dist|public)/,
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            '@babel/preset-env',
+            '@babel/preset-react'
+          ]
+        }
+      }
+    ]
+  }
+}]

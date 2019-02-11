@@ -2,7 +2,7 @@ import React from 'react'
 import { Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { setImageUrl } from './redux/actionCreators'
-const { string, func, arrayOf, object } = React.PropTypes
+import { string, func, arrayOf, object } from 'prop-types'
 
 class ImageCarousel extends React.Component {
 
